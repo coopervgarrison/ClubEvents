@@ -18,10 +18,10 @@ import java.util.List;
 public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     Context context;
-    List<String> groups;
-    List<List<String>> children;
+    ArrayList<String> groups;
+    ArrayList<ArrayList<String>> children;
 
-    public ExpandableListViewAdapter(Context context, List<String> groups, List<List<String>> children) {
+    public ExpandableListViewAdapter(Context context, ArrayList<String> groups, ArrayList<ArrayList<String>> children) {
         this.context = context;
         this.groups = groups;
         this.children = children;
@@ -80,7 +80,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_child, null);
@@ -98,14 +98,18 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
             public void onClick(View v) {
                 if (groupP == 0) {
                     Intent intent = new Intent(context, DisplayOrgs.class);
+                    //intent.putStringArrayListExtra("events", children.get(groupP));
+                    intent.putExtra("org", children.get(groupP).get(childP));
                     context.startActivity(intent);
                 }
                 if (groupP == 1) {
                     Intent intent = new Intent(context, DisplayEvent.class);
+                    intent.putExtra("event", children.get(groupP).get(childP));
                     context.startActivity(intent);
                 }
                 if (groupP == 2) {
-                    Intent intent = new Intent(context, DisplayCal.class);
+                    Intent intent = new Intent(context, DisplayEvent.class);
+                    intent.putExtra("event", children.get(groupP).get(childP));
                     context.startActivity(intent);
                 }
             }

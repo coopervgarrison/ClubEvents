@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.widget.ExpandableListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FrontPageActivity extends AppCompatActivity {
 
     ExpandableListView expandableListView;
     ExpandableListViewAdapter expandableListViewAdapter;
-    List<String> orgByName, eventByDate, clientEventByDate, keys;
-    List<List<String>> frontpageMap;
+    ArrayList<String> orgByName, eventByDate, clientEventByDate, keys;
+    ArrayList<ArrayList<String>> frontpageMap;
 
 
     @Override
@@ -40,6 +39,8 @@ public class FrontPageActivity extends AppCompatActivity {
         orgByName.add("org5");
         eventByDate.add("event1");
         eventByDate.add("event2");
+        eventByDate.add("event3");
+        eventByDate.add("event4");
         clientEventByDate.add("event2");
         keys.add("Organizations");
         keys.add("All Events");

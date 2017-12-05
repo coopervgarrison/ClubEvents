@@ -18,10 +18,10 @@ import java.util.List;
 public class NewExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     Context context;
-    List<String> groups;
-    List<List<String>> children;
+    ArrayList<String> groups;
+    ArrayList<ArrayList<String>> children;
 
-    public NewExpandableListViewAdapter(Context context, List<String> groups, List<List<String>> children) {
+    public NewExpandableListViewAdapter(Context context, ArrayList<String> groups, ArrayList<ArrayList<String>> children) {
         this.context = context;
         this.groups = groups;
         this.children = children;
@@ -97,6 +97,7 @@ public class NewExpandableListViewAdapter extends BaseExpandableListAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DisplayEvent.class);
+                intent.putExtra("event", children.get(groupP).get(childP));
                 context.startActivity(intent);
             }
         });
