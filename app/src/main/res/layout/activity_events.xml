@@ -5,10 +5,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/dateText"
+        android:id="@+id/eventTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Event Page"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="?attr/colorPrimaryDark"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/descrText"

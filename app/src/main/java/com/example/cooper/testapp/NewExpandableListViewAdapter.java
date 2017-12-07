@@ -73,8 +73,8 @@ public class NewExpandableListViewAdapter extends BaseExpandableListAdapter {
         TextView textView = (TextView) convertView.findViewById(R.id.elvGroup);
         textView.setText(groups.get(groupPosition));
         textView.setPadding(100, 0, 0, 0);
-        textView.setTextColor(Color.BLACK);
-        textView.setTextSize(40);
+        textView.setTextColor(Color.BLUE);
+        textView.setTextSize(30);
         textView.setTypeface(Typeface.DEFAULT_BOLD, 2);
         return convertView;
     }
@@ -88,7 +88,7 @@ public class NewExpandableListViewAdapter extends BaseExpandableListAdapter {
         final TextView textView = (TextView) convertView.findViewById(R.id.elvChild);
         textView.setText(children.get(groupPosition).get(childPosition));
         textView.setPadding(100, 0, 0, 0);
-        textView.setTextColor(Color.GRAY);
+        textView.setTextColor(Color.BLACK);
         textView.setTextSize(20);
         textView.setTypeface(Typeface.DEFAULT, 2);
         final int groupP = groupPosition;

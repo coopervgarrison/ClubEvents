@@ -19,12 +19,12 @@ public class DisplayEvent extends AppCompatActivity {
         Intent intent = getIntent();
         String eventID = intent.getStringExtra("event");
         RSVP = (ToggleButton) findViewById(R.id.toggleButton);
-        dateTimeTitle = (TextView) findViewById(R.id.dateText);
+        dateTimeTitle = (TextView) findViewById(R.id.eventTitle);
         description = (TextView) findViewById(R.id.descrText);
-
+        if (intent.getBooleanExtra("RSVP", false))
+            RSVP.toggle();
         dateTimeTitle.setText(eventID);
         description.setText("Organization:" + "\n" + "Description of event.");
-        //RSVP.toggle();
     }
 
 

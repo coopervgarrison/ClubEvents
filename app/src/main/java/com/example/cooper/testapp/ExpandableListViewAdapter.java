@@ -4,16 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
 
@@ -73,8 +70,8 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         TextView textView = (TextView) convertView.findViewById(R.id.elvGroup);
         textView.setText(groups.get(groupPosition));
         textView.setPadding(100, 0, 0, 0);
-        textView.setTextColor(Color.BLACK);
-        textView.setTextSize(40);
+        textView.setTextColor(Color.BLUE);
+        textView.setTextSize(30);
         textView.setTypeface(Typeface.DEFAULT_BOLD, 2);
         return convertView;
     }
@@ -88,7 +85,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
         final TextView textView = (TextView) convertView.findViewById(R.id.elvChild);
         textView.setText(children.get(groupPosition).get(childPosition));
         textView.setPadding(100, 0, 0, 0);
-        textView.setTextColor(Color.GRAY);
+        textView.setTextColor(Color.BLACK);
         textView.setTextSize(20);
         textView.setTypeface(Typeface.DEFAULT, 2);
         final int groupP = groupPosition;
@@ -110,6 +107,7 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
                 if (groupP == 2) {
                     Intent intent = new Intent(context, DisplayEvent.class);
                     intent.putExtra("event", children.get(groupP).get(childP));
+                    intent.putExtra("RSVP", true);
                     context.startActivity(intent);
                 }
             }

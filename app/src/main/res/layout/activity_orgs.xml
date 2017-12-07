@@ -3,6 +3,26 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/orgTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Org Page"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="?attr/colorPrimaryDark"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/orgDescr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is a description of the organization."
+        android:textSize="18sp" />
+
     <ExpandableListView
         android:id="@+id/lvExp"
         android:layout_height="match_parent"

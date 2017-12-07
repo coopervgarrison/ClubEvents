@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,8 @@ public class DisplayOrgs extends AppCompatActivity {
     ExpandableListView expandableListView;
     NewExpandableListViewAdapter expandableListViewAdapter;
     String orgName;
-    ArrayList<String> orgsByName, eventByOrg;
-    ArrayList<ArrayList<String>> orgsMap;
+    ArrayList<String> eventGroup, eventByOrg;
+    ArrayList<ArrayList<String>> eventsMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,23 +23,25 @@ public class DisplayOrgs extends AppCompatActivity {
         setContentView(R.layout.activity_orgs);
         Intent intent = getIntent();
         orgName = intent.getStringExtra("org");
+        TextView title = (TextView) findViewById(R.id.orgTitle);
+        title.setText(orgName);
         fillLists();
         expandableListView = (ExpandableListView) findViewById(R.id.lvExp);
-        expandableListViewAdapter = new NewExpandableListViewAdapter(this, orgsByName, orgsMap);
+        expandableListViewAdapter = new NewExpandableListViewAdapter(this, eventGroup, eventsMap);
         expandableListView.setAdapter(expandableListViewAdapter);
     }
 
     public void fillLists() {
-        orgsByName = new ArrayList<>();
+        eventGroup = new ArrayList<>();
         eventByOrg = new ArrayList<>();
-        orgsMap = new ArrayList<>();
+        eventsMap = new ArrayList<>();
 
         //Fill in orgByName, eventByOrg, and orgsMap
-        orgsByName.add(orgName);
+        eventGroup.add(" Events");
         eventByOrg.add("event1");
         eventByOrg.add("event3");
         eventByOrg.add("event4");
-        orgsMap.add(eventByOrg);
+        eventsMap.add(eventByOrg);
     }
 
 

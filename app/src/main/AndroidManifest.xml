@@ -28,10 +28,6 @@
             android:name=".DisplayEvent"
             android:label="@string/app_name">
         </activity>
-        <activity
-            android:name=".DisplayCal"
-            android:label="@string/app_name">
-        </activity>
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -21,9 +22,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-    protected static final int GROUPCAST_PORT = 20000;
-    protected static final String GROUPCAST_SERVER = "10.0.2.2";
+    //private static final String HOST_ADDRESS = "127.0.0.1";
+    //private static final int PORT = 6789;
     Socket mSocket = null;
     BufferedReader mIn = null;
     PrintWriter mOut = null;
@@ -41,6 +41,34 @@ public class MainActivity extends AppCompatActivity {
         logIn = (Button) findViewById(R.id.logIn);
         username = (EditText) findViewById(R.id.editUN);
         password = (EditText) findViewById(R.id.editPW);
+        /*try {
+            boolean task = true;
+            String responseFromServer;
+            Socket socket = new Socket(HOST_ADDRESS, PORT);
+
+            while (task) {
+                //BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+                //DataOutputStream outToServer = new DataOutputStream(socket.getOutputStream());
+                BufferedReader inFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                responseFromServer = inFromServer.readLine();
+                if (responseFromServer.equalsIgnoreCase("Waiting for a command.")
+                        || responseFromServer.equalsIgnoreCase("Please enter key.")
+                        || responseFromServer.equalsIgnoreCase("Please enter value.")
+                        || responseFromServer.equalsIgnoreCase("Please enter key to retrieve its value.")) {
+                    System.out.println(responseFromServer);
+                    //userInput = inFromUser.readLine() + "\n";
+                    //outToServer.writeBytes(userInput);
+                }
+                else {
+                    System.out.println(responseFromServer);
+                    task = false;
+                    socket.close();
+                }
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }*/
         //Fill in logInCreds
         logInCreds = new HashMap<>();
         logInCreds.put("default", "default");
