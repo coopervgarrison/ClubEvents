@@ -10,3 +10,6 @@ our PostGreSQL database to the app/server. We decided to create a class in our a
 our app would use. We also tried reading in text files instead of having a living database, but also had trouble reading and
 storing that information. We also had challenges in using buttons in Android Studio, so we circumvented the problem with
 Expandable Lists.
+
+EC2 endpoint: ec2-18-217-216-213.us-east-2.compute.amazonaws.com
+RDS endpoint: orgevents.c6kwttojmhip.us-east-2.rds.amazonaws.com
